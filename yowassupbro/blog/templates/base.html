@@ -1,0 +1,50 @@
+{% extends "foundation/base.html" %}
+{% load blog_tags %}
+{% load staticfiles %}
+<!--{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %} -->
+{% load font_awesome %}
+<!--{% fa_css %}-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}My Blog{% endblock %}</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <h1>Memo</h1>
+                <p>Welcome to my blog where you'll find {% total_posts %} posts</p>
+            </div>
+
+            <div class="col-xs-4">
+                <div class="panel panel-default">
+                <ul>
+                    <h3>Account</h3>
+                    <a href="https://mars.yowassupbro.com:8000/blog/login">Login to your account</a>
+                <h3>Latest posts</h3>
+                {% show_latest_posts 4 %}
+                <h3>Most commented posts</h3>
+                <ul>
+                    {% get_most_commented_posts as most_commented_posts %}
+                {% for post in most_commented_posts %}
+                <li>
+                    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                </li>
+                {% endfor %}
+                </ul>
+                </div>
+            </div>
+
+            <div class="col-xs-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+            <nav>
+            {% include "pagination.html" with page=posts %}
+            </nav>
+        </div>
+    </body>
+</html>
