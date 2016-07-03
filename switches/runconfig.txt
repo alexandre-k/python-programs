@@ -1,0 +1,17 @@
+interface GigabitEthernet0/3
+description test (10.0.0.1)
+switchport access allow vlan 204
+switchport mode access
+duplex full
+speed 1000
+spanning-tree portfast
+end
+!
+interface GigabitEthernet0/5
+description test (10.0.0.2)
+switchport access allow vlan 205
+switchport mode access
+duplex half
+speed 100
+spanning-tree portfast
+end
