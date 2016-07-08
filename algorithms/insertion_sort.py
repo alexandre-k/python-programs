@@ -1,17 +1,14 @@
-#based on the pseudo-code in the video Binary Search from CS50 on Youtube
-def bubble_sort(array):
-    unsorted = True
-    while unsorted:
-        swap = 0
-        print(array)
-        for i in range(0,len(array)-1):
-            if array[i+1] < array[i]:
-                array[i],array[i+1] = array[i+1], array[i]
-                swap += 1
-        if swap == 0:
-            unsorted = False
-
-    return array
+#based on the video from CS50 on Youtube
+def insertion_sort(unsorted):
+    sorted =[]
+    for to_left in range(1,len(unsorted)-1):
+        unsorted_element = sorted[to_left]
+        index_unsorted = to_left
+        while sorted[index_unsorted-1] > unsorted_element and index_unsorted > 0:
+            sorted[index_unsorted] = sorted[index_unsorted - 1]
+            index_unsorted = index_unsorted - 1
+        sorted[index_unsorted] = unsorted_element
+    return unsorted
 
 def main():
     sortedArray = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 306]
@@ -19,7 +16,7 @@ def main():
     print('sorted array:')
     print(sortedArray)
     print('unsorted array:')
-    print(bubble_sort(unsortedArray))
+    print(insertion_sort(unsortedArray))
 
 if __name__ == "__main__":
     main()
