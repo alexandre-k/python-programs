@@ -15,6 +15,7 @@ class User(Base):
     firstname = Column(Unicode, nullable=False)
     lastname = Column(Unicode, nullable=False)
 
+    @staticmethod
      def check_input(string):
          '''
          Based on the man page available on
