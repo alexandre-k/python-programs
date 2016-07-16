@@ -16,14 +16,14 @@ class User(Base):
     lastname = Column(Unicode, nullable=False)
 
     @staticmethod
-     def check_input(string):
-         '''
-         Based on the man page available on
-         freebsd.org/cgi/man.cgi?adduser(8)
-         '''
-         username = re.compile(r'[a-z0-9\-]+')
-         firstname = re.compile(r'[a-zA-Z]+')
-         lastname = re.compile(r'[a-zA-Z\'\-]+')
+    def check_input(string):
+        '''
+        Based on the man page available on
+        freebsd.org/cgi/man.cgi?adduser(8)
+        '''
+        username = re.compile(r'[a-z0-9\-]+')
+        firstname = re.compile(r'[a-zA-Z]+')
+        lastname = re.compile(r'[a-zA-Z\'\-]+')
 
     def user():
-
+        pass

@@ -20,8 +20,16 @@ class basicSiteParsing(unittest.TestCase):
         parser = urlParser(url)
         self.assertEqual(parser.site, expected_site)
 
-    def test_site_without_path(self):
-        self.assertSite('http://www.google.com', 'wwww.google.com')
+    def assertPath(self, url, expected_path):
+        parser = urlParser(url)
+        self.assertEqual(parser.path, expected_path)
 
     def test_with_simple_path(self):
-        self.assertSite('http://google.com/search', 'google.com/search')
+        self.assertSite('http://google.com/search', 'google.com')
+
+    def test_empty_path(self):
+        self.assertPath('http://google.com', '')
+
+    def test_empty_path_with_slash(self):
+        self.assertPath('http://google.com/', '')
+

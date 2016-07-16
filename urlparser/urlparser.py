@@ -1,5 +1,11 @@
 class urlParser:
     def __init__(self, url):
-        protocol, site = url.split('://')
+        protocol, site_and_path = url.split('://')
         self.protocol = protocol
-        self.site = site.split('/')
+        site_and_path_list = site_and_path.split('/')
+        self.site = site_and_path_list[0]
+        if len(site_and_path_list) > 1:
+            self.path = '/'.join(site_and_path_list[1:])
+        else:
+            self.path = ''
+
