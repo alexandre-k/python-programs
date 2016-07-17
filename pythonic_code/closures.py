@@ -1,9 +1,12 @@
-def outer_func():
-    message = 'Hi'
-
+def outer_func(msg):
     def inner_func():
-        print(message)
+        print(msg)
 
-    return inner(func)
+    return inner_func()
 
-outer_func()
+hi_func = outer_func('hi')
+
+bye_func = outer_func('bye')
+
+hi_func()
+bye_func()
