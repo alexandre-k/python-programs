@@ -1,0 +1,4 @@
+{
+  "test.py::TestFlaskApp::test_home": true,
+  "test.py::TestFlaskApp::test_login": true
+}
